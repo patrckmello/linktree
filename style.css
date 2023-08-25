@@ -88,13 +88,18 @@ body * {
   left: 0;
   z-index: 1; /* Define a layer do elemento. */
 
-  transform: translateY(-50%)
+  transform: translateY(-50%);
+
+  animation: slide-back .4s;
 
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.4s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -183,5 +188,23 @@ footer {
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animation */
+
+@keyframes slide-in {
+from {
+  left: 0;
+} to {
+  left: 53%;
+}
+}
+
+@keyframes slide-back {
+  from {
+    left: 53%
+  } to {
+    left: 0
   }
 }
